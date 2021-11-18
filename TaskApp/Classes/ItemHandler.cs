@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TaskApp.Interfaces;
 
 namespace TaskApp.Classes
 {
-    class ItemHandler : Ieditable
+    class ItemHandler : IEditable
     {
        private List<Item> itemList;
 
@@ -18,7 +20,12 @@ namespace TaskApp.Classes
 
         public ItemHandler()
         {
-            itemList = new List<Item>();
+            
+            var filename = @"C:\Users\pc\Tests\text.json";
+
+            var text = File.ReadAllText(filename);
+
+             itemList = JsonConvert.DeserializeObject<List<Item>>(text);
         }
 
 
@@ -86,8 +93,16 @@ namespace TaskApp.Classes
             switch (input)
             {
                 case "s":
-                    app.Stop();
-                    break;
+                    Console.WriteLine("Are you sure that you want to exit? If 'Yes' press y ,if 'No' press Enter");
+                    var answer = Console.ReadLine();
+                    if (answer == "y")
+                    {
+                        SaveToTxt(itemList);
+                        app.Stop();
+                    } 
+                  
+                        break;
+                            
                 case "d":
                     Console.WriteLine("Enteer number of the task :");
                     var taskToDelete = Convert.ToInt32(Console.ReadLine());
@@ -110,5 +125,33 @@ namespace TaskApp.Classes
             }
 
         }
+        public static void SaveToTxt(List<Item> list)
+        {
+            var path = @"C:\Users\pc\Tests\text.json";
+            try
+            {
+               var Json = JsonConvert.SerializeObject(list);
+                // This text is added only once to the file.
+                // Create a file to write to.
+
+                    File.WriteAllText(path, Json, Encoding.UTF8);
+                
+               
+                // using (TextWriter tw = new StreamWriter(writePath))
+                // {
+                //  var index = 1;
+                //  foreach (var item in list)
+                //  {
+                //     tw.WriteLine($"{index}. { item.ToString()}");
+                //     index++;
+                //  }
+                // }
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+        }   
     }
 }

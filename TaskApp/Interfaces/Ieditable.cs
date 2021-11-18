@@ -7,7 +7,7 @@ using TaskApp.Classes;
 
 namespace TaskApp.Interfaces
 {
-    interface Ieditable
+    interface IEditable
     {
         public void AddItem(string title,string type);
         public void RemoveItem(int position,SuperTaskApp app);
