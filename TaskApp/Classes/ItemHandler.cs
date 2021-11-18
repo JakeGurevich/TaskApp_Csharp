@@ -57,24 +57,30 @@ namespace TaskApp.Classes
            
         }
 
-        public void RemoveItem()
+        public void RemoveItem(int position,SuperTaskApp app)
         {
-           
+            itemList.RemoveAt(position-1);
+            ShowItems();
+            optionHandler(app);
         }
         public void ShowItems()
         {
+            var index = 1;
             Console.WriteLine("*******************");
             Console.WriteLine("Your tasks:");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~");
             foreach (var item in itemList)
             {
-               Console.WriteLine (item.ToString());
+              
+               Console.WriteLine ($"{index}. {item.ToString()}");
                 Console.WriteLine("------------------");
+                index++;
             }
         }
         public void optionHandler(SuperTaskApp app)
         {
             Console.WriteLine("Want to add more tasks? Press m");
+            Console.WriteLine("Want to delete the task? Press d");
             Console.WriteLine("Want to exit? Press s");
             var input = Console.ReadLine();
            
@@ -83,7 +89,12 @@ namespace TaskApp.Classes
                 case "s":
                     app.Stop();
                     break;
-                
+                case "d":
+                    Console.WriteLine("Enteer number of the task :");
+                    var taskToDelete = Convert.ToInt32(Console.ReadLine());
+                    RemoveItem(taskToDelete,app);
+                    break;
+
 
                 default:
                     

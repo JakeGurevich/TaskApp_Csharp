@@ -18,7 +18,7 @@ namespace TaskApp.Classes
         }
         public override string ToString()
         {
-            return  $"{_id}. Title : {Title} ({type}) , Created at:{CreatedAt.ToString("MM/dd/yy HH:mm")}";
+            return  $" Title : {Title} ({type}) , Created at:{CreatedAt.ToString("MM/dd/yy HH:mm")}";
         }
     }
 }
