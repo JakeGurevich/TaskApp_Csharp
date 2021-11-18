@@ -11,7 +11,7 @@ namespace TaskApp.Interfaces
     {
         public void AddItem(string title,string type);
         public void RemoveItem(int position,SuperTaskApp app);
-        public void EditItem();
+        public void EditItem(int position, string title, SuperTaskApp app);
        
 
     }

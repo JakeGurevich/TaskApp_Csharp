@@ -32,18 +32,14 @@ namespace TaskApp.Classes
 
         public string CreateType()
         {
-            Console.WriteLine("Enter type of goal , if it's a task to do  - enter 'task', if it's bylist  - enter 'buylist' ");
+            Console.WriteLine("Enter type of goal ,  if it's a bylist  - enter 'b',if it's a task to do  - press enter, ");
             var input = Console.ReadLine();
             return input;
 
         }
         public void AddItem(string title,string type)
         {
-            if (type == "task")
-            {
-                itemList.Add(new Task(title));
-            }
-            else if (type == "buylist")
+          if (type == "b")
             {
                 itemList.Add(new Buylist(title));
             } else
@@ -52,9 +48,11 @@ namespace TaskApp.Classes
             }
         }
 
-        public void EditItem()
+        public void EditItem(int position,string title, SuperTaskApp app)
         {
-           
+            itemList[position-1].Title = title;
+            ShowItems();
+            optionHandler(app);
         }
 
         public void RemoveItem(int position,SuperTaskApp app)
@@ -81,6 +79,7 @@ namespace TaskApp.Classes
         {
             Console.WriteLine("Want to add more tasks? Press m");
             Console.WriteLine("Want to delete the task? Press d");
+            Console.WriteLine("Want to edit the task? Press e");
             Console.WriteLine("Want to exit? Press s");
             var input = Console.ReadLine();
            
@@ -94,6 +93,14 @@ namespace TaskApp.Classes
                     var taskToDelete = Convert.ToInt32(Console.ReadLine());
                     RemoveItem(taskToDelete,app);
                     break;
+                case "e":
+                    Console.WriteLine("Enter number of the task to edit :");
+                    var taskToEdit = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter new Title :");
+                    var newTitle = Console.ReadLine();
+                    EditItem(taskToEdit,newTitle, app);
+                    break;
+
 
 
                 default:
