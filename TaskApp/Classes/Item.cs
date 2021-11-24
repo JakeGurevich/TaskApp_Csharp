@@ -2,11 +2,11 @@
 
 namespace TaskApp.Classes
 {
-    internal class Item
+    public class Item
     {
         private static int count = 1;
         private int _id;
-        protected string type;
+        public string type { get; set; }
         public string Title { get; set; }
         public DateTime CreatedAt { get; set; }
         public Item(string title)
