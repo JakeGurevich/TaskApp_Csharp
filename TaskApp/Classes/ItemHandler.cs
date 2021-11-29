@@ -13,7 +13,7 @@ namespace TaskApp.Classes
 {
     class ItemHandler : IEditable
     {
-       private List<Item> itemList;
+       public List<Item> itemList;
         private static ILogger<Program> _logger;
         private static ServiceProvider _serviceProvider;
 
@@ -33,7 +33,7 @@ namespace TaskApp.Classes
         {
             Console.WriteLine("Enter your task to do :");
             var taskName = Console.ReadLine();
-            Console.WriteLine("Enter type of goal ,  if it's a bylist  - enter 'b',if it's a task to do  - press enter, ");
+            Console.WriteLine("Enter type of goal ,  if it's a bylist  - enter 'b',  if it's a goal  - enter 'g', if it's a task to do  - press enter, ");
             var taskType = Console.ReadLine();
             Item newItem ;
             switch (taskType) 
@@ -42,8 +42,12 @@ namespace TaskApp.Classes
 
                 newItem = new Buylist(taskName);
                     break;
+                case "g":
 
-              
+                    newItem = new Goal(taskName);
+                    break;
+
+
                 default:
                     newItem = new Task(taskName);
                     break;
