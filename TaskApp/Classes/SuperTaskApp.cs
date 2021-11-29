@@ -9,7 +9,7 @@ using TaskApp.Interfaces;
 
 namespace TaskApp.Classes
 {
-    class SuperTaskApp
+  public  class SuperTaskApp
     {
         private static ILogger<Program> _logger;
         private static ServiceProvider _serviceProvider;
