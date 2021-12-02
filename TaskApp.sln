@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskApp", "TaskApp\TaskApp.csproj", "{59383BA9-7332-49D3-994F-BE337AF4E683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppTask", "TestAppTask\TestAppTask.csproj", "{A24E04A2-13A6-4900-81AF-7D67D9FBACEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAppTask", "TestAppTask\TestAppTask.csproj", "{A24E04A2-13A6-4900-81AF-7D67D9FBACEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDrow", "ConsoleDrow\ConsoleDrow.csproj", "{9166B0F5-B510-4870-A31A-46086487FAB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A24E04A2-13A6-4900-81AF-7D67D9FBACEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A24E04A2-13A6-4900-81AF-7D67D9FBACEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A24E04A2-13A6-4900-81AF-7D67D9FBACEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9166B0F5-B510-4870-A31A-46086487FAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9166B0F5-B510-4870-A31A-46086487FAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9166B0F5-B510-4870-A31A-46086487FAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9166B0F5-B510-4870-A31A-46086487FAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
